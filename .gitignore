@@ -1,0 +1,6 @@
+/.bundle/
+/.env.*.local
+/coverage/
+/log/*.log
+/tmp/
+/vendor/bundle/

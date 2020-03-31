@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  RUBY_VERSION: 2.6
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+
+      - name: Cache gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: gems-${{ hashFiles('.ruby-version') }}-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: gems-${{ hashFiles('.ruby-version') }}-
+
+      - run: ./bin/setup
+
+      - run: ./bin/test
+
+      - run: ./bin/quality
+
+      - run: ./bin/run
+
+      - run: ./bin/git_changes
