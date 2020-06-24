@@ -17,6 +17,9 @@ Layout/LineLength:
 Layout/MultilineAssignmentLayout: # Prefer same line
   EnforcedStyle: same_line
 
+Lint/ConstantResolution: # Not standard ruby style
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*" # OK for specs to have large blocks
