@@ -5,7 +5,6 @@ on:
     branches: [master]
   pull_request:
 
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -17,7 +16,6 @@ jobs:
         with:
           bundler-cache: true
 
-
       - run: ./bin/setup
 
       - run: ./bin/test
@@ -26,7 +24,8 @@ jobs:
 
       - run: ./bin/run
 
-      - run: ./bin/git_changes
+      - name: Run git diff
+        run: if [[ $(git status --porcelain) != '' ]]; then git status; git diff; exit 1; fi
 
   automerge:
     if: github.event_name == 'pull_request' && github.actor == 'dependabot[bot]'
