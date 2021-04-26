@@ -1,0 +1,28 @@
+name: Test
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - run: ./bin/setup
+
+      - run: ./bin/test
+
+      - run: ./bin/quality
+
+      - run: ./bin/run
+
+      - name: Run git diff
+        run: if [[ $(git status --porcelain) != '' ]]; then git status; git diff; exit 1; fi
