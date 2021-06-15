@@ -8,21 +8,11 @@ AllCops:
   Exclude:
     - "vendor/bundle/**/*" # External libraries
 
-Bundler/GemComment: # Prefer inline comments
-  Enabled: false
-
-Layout/LineLength:
-  Max: 100 # Default is 80 which is a bit narrow
-
 Layout/MultilineAssignmentLayout: # Prefer same line
   EnforcedStyle: same_line
 
 Lint/ConstantResolution: # Not standard ruby style
   Enabled: false
-
-Metrics/BlockLength:
-  Exclude:
-    - "spec/**/*" # OK for specs to have large blocks
 
 Style/Documentation: # Not a public library so not needed
   Enabled: false
@@ -38,10 +28,6 @@ Style/FrozenStringLiteralComment: # Remove in ruby 3
 
 Style/InlineComment: # Good in lots of cases
   Enabled: false
-
-Style/IpAddresses:
-  Exclude:
-    - "spec/**/*" # Good for tests
 
 Style/MethodCallWithArgsParentheses: # Not standard ruby style
   Enabled: false
