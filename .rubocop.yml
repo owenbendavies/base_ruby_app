@@ -8,6 +8,9 @@ AllCops:
   Exclude:
     - "vendor/bundle/**/*" # External libraries
 
+Bundler/GemVersion: # Keep versions in Gemfile.lock so easy to upgrade
+  EnforcedStyle: forbidden
+
 Layout/MultilineAssignmentLayout: # Prefer same line
   EnforcedStyle: same_line
 
