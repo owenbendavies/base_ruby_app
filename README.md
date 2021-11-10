@@ -1,6 +1,6 @@
 # Base Ruby App
 
-[![Test](https://github.com/owenbendavies/base_ruby_app/actions/workflows/test.yml/badge.svg)](https://github.com/owenbendavies/base_ruby_app/actions/workflows/test.yml)
+[![CI](https://github.com/owenbendavies/base_ruby_app/actions/workflows/ci.yml/badge.svg)](https://github.com/owenbendavies/base_ruby_app/actions/workflows/ci.yml)
 
 This is a simple base Ruby App which I mainly use for technical tests.
 
